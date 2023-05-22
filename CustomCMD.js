@@ -1,17 +1,17 @@
 commands = [{
-    name: "wtf",
-    description: "Custom commands on the modded server",
-    alias: "wtf",
-    permission: "SeniorAdmin",
-    targetRequired: true,
-    arguments: [{
-        name: 'player',
-        required: true
+       name: "wtf",
+       description: "Custom commands on the modded server",
+       alias: "wtf",
+       permission: "SeniorAdmin",
+       targetRequired: true,
+       arguments: [{
+       name: 'player',
+       required: true
     }],
-    execute: (gameEvent) => {
-        var server = gameEvent.Owner;
-        var cid = gameEvent.Origin.ClientNumber;
-        server.RconParser.ExecuteCommandAsync(server.RemoteConnection, `cmd wtf:${cid}`).Result;
+       execute: (gameEvent) => {
+       var server = gameEvent.Owner;
+       var cid = gameEvent.Origin.ClientNumber;
+       server.RconParser.ExecuteCommandAsync(server.RemoteConnection, `cmd wtf:${cid}`).Result;
 	    }
 	},
     {
@@ -133,11 +133,11 @@ commands = [{
            var cid = gameEvent.Origin.ClientNumber;
            server.RconParser.ExecuteCommandAsync(server.RemoteConnection, `cmd flash:${cid}`).Result;
         }
-    }, 
+    },  
     {
-        name: "r700",
+        name: "ss",
         description: "Custom commands on the modded server",
-        alias: "r700",
+        alias: "ss",
         permission: "SeniorAdmin",
         targetRequired: true,
         arguments: [{
@@ -147,8 +147,32 @@ commands = [{
         execute: (gameEvent) => {
            var server = gameEvent.Owner;
            var cid = gameEvent.Origin.ClientNumber;
-           server.RconParser.ExecuteCommandAsync(server.RemoteConnection, `cmd r700:weapon${cid}`).Result;
+           server.RconParser.ExecuteCommandAsync(server.RemoteConnection, `cmd getss:${cid}`).Result;
         }
+        
+    }, 
+    {
+        name: "ssall",
+        description: "Custom commands on the modded server",
+        alias: "ssall",
+        permission: "SeniorAdmin",
+        execute: (gameEvent) => {
+           var server = gameEvent.Owner;
+           var cid = gameEvent.Origin.ClientNumber;
+           server.RconParser.ExecuteCommandAsync(server.RemoteConnection, `cmd getssall:${cid}`).Result;
+        }
+        
+    },  
+    {
+        name: "spawnall",
+        description: "Custom commands on the modded server",
+        alias: "spawnall",
+        permission: "SeniorAdmin",
+        execute: (gameEvent) => {
+           var server = gameEvent.Owner;
+           var cid = gameEvent.Origin.ClientNumber;
+           server.RconParser.ExecuteCommandAsync(server.RemoteConnection, `cmd spawnall:${cid}`).Result;
+        } 
     } 
 ];
 
